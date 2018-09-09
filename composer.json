@@ -1,6 +1,6 @@
 {
-  "name": "srpago-dev/srpago-php",
-  "description": "SrPago Dev PHP Library",
+  "name": "kinedu/srpago-php",
+  "description": "SrPago PHP Library",
   "keywords": [
     "srpago",
     "card payment",
@@ -23,6 +23,8 @@
     "tcdent/php-restclient": "*"
   },
   "autoload": {
-    "psr-4": { "SrPago\\" : "lib/" }
+    "psr-4": {
+      "SrPago\\" : "lib/"
+    }
   }
 }
