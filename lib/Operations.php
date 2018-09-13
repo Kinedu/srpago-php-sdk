@@ -1,12 +1,13 @@
 <?php
 
 /**
- *
  * Sr. Pago (https://srpago.com)
  *
  * @link      https://api.srpago.com
+ *
  * @copyright Copyright (c) 2016 SR PAGO
  * @license   http://opensource.org/licenses/BSD-2-Clause BSD-2-Clause
+ *
  * @package   SrPago
  */
 
@@ -17,43 +18,37 @@ namespace SrPago;
  *
  * @package SrPago
  */
-class Operations extends Base {
-
+class Operations extends Base
+{
     const ENDPOINT = '/operations';
 
     /**
-     *
      * @param array $parameters
-     * @return mixed
+     *
+     * @return array
      */
-    public function all($parameters = []) {
-
-        $result = $this->httpClient()->get(static::ENDPOINT, $parameters);
-
-        return $result;
+    public function all($parameters = array())
+    {
+        return $this->httpClient()->get(static::ENDPOINT, $parameters);
     }
 
     /**
+     * @param string $transaction
      *
-     * @param array $parameters
-     * @return mixed
+     * @return array
      */
-    public function retreive($transaction) {
-        $result = $this->httpClient()->get(static::ENDPOINT.'/'.$transaction);
-
-        return $result;
+    public function retreive($transaction)
+    {
+        return $this->httpClient()->get(static::ENDPOINT.'/'.$transaction);
     }
 
     /**
+     * @param  string $transaction
      *
-     * @param array $parameters
-     * @return mixed
+     * @return array
      */
-    public function reversal($transaction) {
-        $result = $this->httpClient()->get(static::ENDPOINT.'/apply-reversal/'.$transaction);
-
-        return $result;
+    public function cancel($transaction)
+    {
+        return $this->httpClient()->get(static::ENDPOINT.'/apply-reversal/'.$transaction);
     }
-
-
 }

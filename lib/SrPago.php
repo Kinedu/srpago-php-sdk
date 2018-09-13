@@ -1,24 +1,26 @@
 <?php
 
 /**
- *
  * Sr. Pago (https://srpago.com)
  *
  * @link      https://api.srpago.com
+ *
  * @copyright Copyright (c) 2016 SR PAGO
  * @license   http://opensource.org/licenses/BSD-2-Clause BSD-2-Clause
+ *
  * @package   SrPago
  */
 
 namespace SrPago;
+
 /**
  * Class SrPago
  *
  * @package SrPago
  */
-class SrPago {
-
-  const SRPAGO_RSA_PUBLIC_KEY = '-----BEGIN PUBLIC KEY-----
+class SrPago
+{
+    const SRPAGO_RSA_PUBLIC_KEY = '-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAv0utLFjwHQk+1aLjxl9t
 Ojvt/qFD1HfMFzjYa4d3iFKrQtvxaWM/B/6ltPn6+Pez+dOd59zFmzNHg33h8S0p
 aZ6wmNv3mwp4hCJttGzFvl2hhw8Z+OU9KwGSXgQ+5FNyRyDLp0qt75ayvV0vV8oX
@@ -43,89 +45,107 @@ M8SmGGsTo3V0L+Ni9bNJHa8CAwEAAQ==
 
     const VERSION = '1.0.0';
 
-    public static function getApiBase() {
+    /**
+     * @return string
+     */
+    public static function getApiBase()
+    {
         $url = static::$apiBase;
+
         if (static::$liveMode === false) {
             $url = static::$apiBaseSandbox;
         }
+
         return $url;
     }
 
-    public static function setLiveMode($liveMode) {
+    /**
+     * @param bool $liveMode
+     */
+    public static function setLiveMode($liveMode)
+    {
         static::$liveMode = $liveMode;
     }
 
     /**
-     * @return string The API key used for requests.
+     * @return string
      */
-    public static function getApiKey() {
+    public static function getApiKey()
+    {
         return self::$apiKey;
     }
 
     /**
-     * Sets the API key to be used for requests.
-     *
      * @param string $apiKey
      */
-    public static function setApiKey($apiKey) {
+    public static function setApiKey($apiKey)
+    {
         self::$apiKey = $apiKey;
     }
 
     /**
-     * @return string connection for requests.
+     * @return string|null
      */
-    public static function getConnection() {
+    public static function getConnection()
+    {
         return self::$connection;
     }
 
     /**
-     * @return string The API key used for requests.
+     * @return string
      */
-    public static function getApiSecret() {
+    public static function getApiSecret()
+    {
         return self::$apiSecret;
     }
 
     /**
-     * Sets the API secret to be used for requests.
-     *
      * @param string $apiSecret
      */
-    public static function setApiSecret($apiSecret) {
+    public static function setApiSecret($apiSecret)
+    {
         self::$apiSecret = $apiSecret;
     }
 
     /**
-     * @return string The API version used for requests. null if we're using the
-     *    latest version.
+     * @return string
      */
-    public static function getApiVersion() {
+    public static function getApiVersion()
+    {
         return self::$apiVersion;
     }
 
     /**
      * @param string $apiVersion The API version to use for requests.
      */
-    public static function setApiVersion($apiVersion) {
+    public static function setApiVersion($apiVersion)
+    {
         self::$apiVersion = $apiVersion;
     }
 
     /**
-     *
      * @return string user agent information
      */
-    public static function getUserAgent() {
+    public static function getUserAgent()
+    {
         return json_encode(array('php_version' => phpversion(), 'name' => php_uname(), 'language' => 'PHP',
-                        'sdk_version'=>static::VERSION, 'api_version'=>static::$apiVersion
-                      ));
+            'sdk_version' => static::VERSION, 'api_version' => static::$apiVersion,
+        ));
     }
 
-
-    public static function Charges(){
-      return new \SrPago\Charges();
+    /**
+     * return \SrPago\Charges
+     */
+    public static function Charges()
+    {
+        return new \SrPago\Charges();
     }
 
-    public static function Customer(){
-      return new \SrPago\Customer();
+    /**
+     * return \SrPago\Customer
+     */
+    public static function Customer()
+    {
+        return new \SrPago\Customer();
     }
-
 }

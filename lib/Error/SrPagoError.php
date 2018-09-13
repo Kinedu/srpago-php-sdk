@@ -1,52 +1,66 @@
 <?php
 
 /**
- * 
  * Sr. Pago (https://srpago.com)
- * 
+ *
  * @link      https://api.srpago.com
+ *
  * @copyright Copyright (c) 2016 SR PAGO
  * @license   http://opensource.org/licenses/BSD-2-Clause BSD-2-Clause
+ *
  * @package   SrPago\Error
  */
 
 namespace SrPago\Error;
 
 use Exception;
+
 /**
  * Class SrPagoError
  *
  * @package SrPago\Error
  */
-
-class SrPagoError extends Exception {
-
+class SrPagoError extends Exception
+{
     /**
-     *
-     * @var array 
+     * @var array
      */
     private $error;
 
     /**
-     *
-     * @var int 
+     * @var int
      */
     private $error_code;
 
-    public function getError() {
+    /**
+     * @return array
+     */
+    public function getError()
+    {
         return $this->error;
     }
 
-    public function getErrorCode() {
+    /**
+     * @return int
+     */
+    public function getErrorCode()
+    {
         return $this->error_code;
     }
 
-    public function setError($error) {
+    /**
+     * @param array $error
+     */
+    public function setError($error)
+    {
         $this->error = $error;
     }
 
-    public function setErrorCode($error_code) {
-        $this->error_code = $error_code;
+    /**
+     * @param int $errorCode
+     */
+    public function setErrorCode($errorCode)
+    {
+        $this->error_code = $errorCode;
     }
-
 }
