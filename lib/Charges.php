@@ -106,7 +106,7 @@ class Charges extends Base
      *
      * @param array $parameters
      *
-     * @throws \SrPago\SrPagoException
+     * @throws \SrPago\SrPagoError
      *
      * @return array
      */
@@ -115,7 +115,7 @@ class Charges extends Base
         $chargeRequest = array();
 
         if (! isset($parameters['source'])) {
-            throw new SrPagoException('Source is required');
+            throw new SrPagoError('Source is required');
         }
 
         if (is_string($parameters['source'])) {
@@ -128,7 +128,7 @@ class Charges extends Base
             $ecommerce['ip'] = isset($parameters['ip']) ? $parameters['ip'] : $this->getClientIp();
             $chargeRequest['ecommerce'] = $ecommerce;
         } else {
-            throw new SrPagoException();
+            throw new SrPagoError();
         }
 
         return $chargeRequest;
