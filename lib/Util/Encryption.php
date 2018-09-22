@@ -70,8 +70,8 @@ class Encryption
     }
 
     /**
-     * @param  string $plaintext
-     * @param  string $key
+     * @param string $plaintext
+     * @param string $key
      *
      * @return string
      */

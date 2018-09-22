@@ -43,7 +43,7 @@ class Operations extends Base
     }
 
     /**
-     * @param  string $transaction
+     * @param string $transaction
      *
      * @return array
      */

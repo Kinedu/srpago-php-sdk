@@ -54,7 +54,7 @@ class Customer extends Base
 
     /**
      * @param string $token
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */

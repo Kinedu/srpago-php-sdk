@@ -58,8 +58,8 @@ class HttpClient
 
     /**
      * @param string $url
-     * @param array  $parameters
-     * @param array  $headers
+     * @param array $parameters
+     * @param array $headers
      *
      * @return array
      */
@@ -74,8 +74,8 @@ class HttpClient
 
     /**
      * @param string $url
-     * @param array  $parameters
-     * @param array  $headers
+     * @param array $parameters
+     * @param array $headers
      *
      * @return array
      */
@@ -88,8 +88,8 @@ class HttpClient
 
     /**
      * @param string $url
-     * @param array  $parameters
-     * @param array  $headers
+     * @param array $parameters
+     * @param array $headers
      *
      * @return array
      */
@@ -101,7 +101,7 @@ class HttpClient
     }
 
     /**
-     * @param RestClient  $client
+     * @param RestClient $client
      * @param string|null $classMap
      *
      * @throws \SrPago\Error\SrPagoError
