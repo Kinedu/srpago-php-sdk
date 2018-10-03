@@ -76,6 +76,46 @@ class Charges extends Base
     }
 
     /**
+     * Format the payment information.
+     *
+     * @param array $parameters
+     *
+     * @return array
+     */
+    private function mapToPayment($parameters)
+    {
+        $payment = array();
+
+        $payment['externa'] = array('transaction' => '');
+
+        $payment['reference'] = array(
+            'number' => isset($parameters['reference']) ? $parameters['reference'] : '',
+            'description' => isset($parameters['description']) ? $parameters['description'] : '',
+        );
+
+        $payment['tip'] = array(
+            'amount' => '0.00',
+            'currency' => 'MXN'
+        );
+
+        $payment['total']= array(
+            'amount' => isset($parameters['amount']) ? $parameters['amount'] : '0.0',
+            'currency' => 'MXN'
+        );
+
+        $payment['origin'] = array(
+            'device' => \SrPago\SrPago::getUserAgent(),
+            'ip' => isset($parameters['ip']) ? $parameters['ip'] : null,
+            'location' => array(
+                'latitude' => isset($parameters['latitude']) ? $parameters['latitude'] : '0.00000',
+                'longitude' => isset($parameters['longitude']) ? $parameters['longitude'] : '0.00000',
+            )
+        );
+
+        return $payment;
+    }
+
+    /**
      * @return string
      */
     private function getClientIp()
@@ -119,7 +159,7 @@ class Charges extends Base
         }
 
         if (is_string($parameters['source'])) {
-            $chargeRequest['recurrent'] = ''.$parameters['source'];
+            $chargeRequest['recurrent'] = $parameters['source'];
         } elseif (is_array($parameters['source'])) {
             $card = $this->mapToCard($parameters['source']);
             $ecommerce = $card;
