@@ -86,7 +86,7 @@ class Charges extends Base
     {
         $payment = array();
 
-        $payment['externa'] = array('transaction' => '');
+        $payment['external'] = array('transaction' => '');
 
         $payment['reference'] = array(
             'number' => isset($parameters['reference']) ? $parameters['reference'] : '',
@@ -111,6 +111,13 @@ class Charges extends Base
                 'longitude' => isset($parameters['longitude']) ? $parameters['longitude'] : '0.00000',
             )
         );
+
+        if (isset($parameters['affiliated'])) {
+            $payment['affiliated']= array(
+                'user' => isset($parameters['affiliated']['user']) ? $parameters['affiliated']['user'] : null,
+                'total_fee' => isset($parameters['affiliated']['total_fee']) ? $parameters['affiliated']['total_fee'] : null,
+            );
+        }
 
         return $payment;
     }
