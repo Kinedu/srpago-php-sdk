@@ -30,8 +30,8 @@ class Charges extends Base
      */
     public function create($data)
     {
-        $data = $this->mapToCardPayment($data);
-        $params = Encryption::encryptParametersWithString(json_encode($data));
+        $formattedData = $this->mapToCardPayment($data);
+        $params = Encryption::encryptParametersWithString(json_encode($formattedData));
 
         if (isset($data['metadata'])) {
             $params['metadata'] = $data['metadata'];
