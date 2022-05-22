@@ -21,5 +21,6 @@ require dirname(__FILE__).'/lib/Base.php';
 // SrPago API Resources
 require dirname(__FILE__).'/lib/Token.php';
 require dirname(__FILE__).'/lib/Operations.php';
+require dirname(__FILE__).'/lib/OxxoPayment.php';
 require dirname(__FILE__).'/lib/Charges.php';
 require dirname(__FILE__).'/lib/Customer.php';

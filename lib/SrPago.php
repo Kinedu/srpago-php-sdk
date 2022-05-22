@@ -148,4 +148,12 @@ M8SmGGsTo3V0L+Ni9bNJHa8CAwEAAQ==
     {
         return new \SrPago\Customer();
     }
+
+    /**
+     * return \SrPago\OxxoPayment
+     */
+    public static function OxxoPayment()
+    {
+        return new \SrPago\OxxoPayment();
+    }
 }
