@@ -29,7 +29,7 @@ class OxxoPayment extends Base
      *
      * @return array
      */
-    public function create($data)
+    public function createReference($data)
     {
         if (! isset($data['amount'])) {
             throw new SrPagoError('An amount is required');
